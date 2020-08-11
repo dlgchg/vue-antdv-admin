@@ -1,13 +1,13 @@
 <!--
  * @Author: your name
  * @Date: 2020-08-07 12:34:42
- * @LastEditTime: 2020-08-07 13:33:15
- * @LastEditors: your name
+ * @LastEditTime: 2020-08-11 14:51:56
+ * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /vue-antdv-admin/src/App.vue
 -->
 <template>
-  <div id="app">
+  <div id="app" ref="appid">
     <router-view/>
   </div>
 </template>
