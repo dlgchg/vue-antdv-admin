@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2020-08-10 10:48:57
- * @LastEditTime: 2020-08-10 11:03:40
+ * @LastEditTime: 2020-08-10 13:00:11
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /vue-antdv-admin/src/utils/http.js
@@ -11,7 +11,9 @@ import store from "../store";
 import { getToken } from "./auth";
 
 const instace = axios.create({
-  baseURL: "../serverjson/",
+  baseURL: "/serverapi/dlgchg/vue-antdv-admin/master/src/serverjson/",
+  timeout: 10000,
+  headers: {'Content-Type':'application/x-www-form-urlencoded'}
 });
 
 instace.interceptors.request.use(

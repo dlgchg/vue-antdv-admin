@@ -1,7 +1,7 @@
 /*
  * @Author: 李伟
  * @Date: 2020-08-07 14:31:27
- * @LastEditTime: 2020-08-10 11:10:21
+ * @LastEditTime: 2020-08-11 11:26:07
  * @LastEditors: Please set LastEditors
  * @Description: Vuex用户信息以及用户权限路由
  * @FilePath: /vue-antdv-admin/src/store/modules/user.js
@@ -52,12 +52,10 @@ const actions = {
     const { user, pass } = userInfo;
     return new Promise((resolve) => {
       login({user, pass}).then(response => {
-        const {data} = response
+        const { data } = response
         setToken(data.token);
         commit(SetToken, data.token);
-        setTimeout(() => {
-          resolve();
-        }, 3000);
+        resolve();
       })
     });
   },
@@ -81,14 +79,15 @@ const actions = {
    * @param {type} 
    * @return Promise
    */
-  getUserInfo({commit}, state) {
+  getUserInfo({commit,state}) {
+    console.log(state)
     return new Promise(resolve => {
       getUserInfo(state.token).then(response => {
         const { data } = response
         const { name, roles } = data
         commit(SetName, name)
         commit(SetRoles, roles)
-        resolve(data.roles)
+        resolve(roles)
       })
 
     })

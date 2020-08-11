@@ -1,15 +1,15 @@
 /*
  * @Author: your name
  * @Date: 2020-08-10 10:59:03
- * @LastEditTime: 2020-08-10 11:12:15
+ * @LastEditTime: 2020-08-10 12:03:11
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /vue-antdv-admin/src/api/user.js
  */
-import request from "../utils/http";
+import http from "../utils/http";
 
 export function login(data) {
-  return request({
+  return http({
     url: "login.json",
     method: 'get',
     data,
@@ -17,7 +17,7 @@ export function login(data) {
 }
 
 export function getUserInfo(token) {
-  return request({
+  return http({
     url: "userinfo.json",
     method: 'get',
     params: { token },
@@ -25,7 +25,7 @@ export function getUserInfo(token) {
 }
 
 export function loginOut() {
-  return request({
+  return http({
     url: "loginout.json",
     method: "get",
   });

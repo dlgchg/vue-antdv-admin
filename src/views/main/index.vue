@@ -1,79 +1,90 @@
 <!--
  * @Author: 李伟
  * @Date: 2020-08-07 15:06:57
- * @LastEditTime: 2020-08-10 10:24:34
+ * @LastEditTime: 2020-08-11 13:57:24
  * @LastEditors: Please set LastEditors
  * @Description: 主页
  * @FilePath: /vue-antdv-admin/src/views/main/index.vue
 -->
 <template>
-  <a-layout>
-    <a-layout-sider
-      v-model="collapsed"
-      :class="{ hiddsider: collapsed }"
-      :trigger="null"
-      collapsible
-      collapsedWidth="54"
-      >Sider</a-layout-sider
-    >
-    <a-layout class="main-content">
-      <a-layout-header>
-        <a-icon
-          class="trigger"
-          :type="collapsed ? 'menu-unfold' : 'menu-fold'"
-          @click="() => (collapsed = !collapsed)"
-        />
-        <a-button @click="handlerLoginOut">LoginOut</a-button>
-      </a-layout-header>
-      <a-layout-content>
-        <div style="height: 200vh"></div>
-      </a-layout-content>
-      <a-layout-footer>Footer</a-layout-footer>
-    </a-layout>
-  </a-layout>
+  <div class="layout">
+      <sider-my />
+      <Layout class="main-content">
+        <Header>
+          <Icon
+            type="md-menu"
+            @click="collapsedSider"
+            :class="rotateIcon"
+            size="24"
+          />
+          <Button @click="handlerLoginOut">LoginOut</Button>
+        </Header>
+        <Content class="main-content">
+          <transition>
+            <keep-alive>
+              <router-view></router-view>
+            </keep-alive>
+          </transition>
+        </Content>
+        <Footer>Footer</Footer>
+      </Layout>
+
+  </div>
 </template>
 
 <script>
+import { mapGetters } from "vuex";
+import SiderMy from "../../components/sider/SiderMy";
 export default {
   name: "Home",
-  data() {
-    return {
-      collapsed: false,
-    };
+  components: {
+    "sider-my": SiderMy,
+  },
+  computed: {
+    ...mapGetters(["siderOpened", "permission_routes"]),
+    rotateIcon() {
+      return ["menu-icon", this.siderOpened ? "rotate-icon" : ""];
+    },
+    menuitemClasses() {
+      return ["menu-item", this.siderOpened ? "collapsed-menu" : ""];
+    },
   },
   methods: {
-    handlerLoginOut: function() {
-      this.$store.dispatch("loginOut");
-      this.$router.replace("/login");
+    collapsedSider() {
+      this.$store.dispatch("toggleSider");
+    },
+    handlerLoginOut() {
+      this.$store.dispatch("loginOut").then(() => {
+        this.$router.push("/login");
+      });
     },
   },
 };
 </script>
 <style lang="scss" scoped>
-.ant-layout-sider {
-  height: 100vh;
-  position: fixed;
-  top: 0;
-  left: 0;
-  background-origin: 0;
-  transition: all 0.3s;
-  background-color: #3E454C;
-}
-.hiddsider + .main-content {
-  margin-left: 54px;
-}
+.layout {
+  background: #f5f7f9;
+  position: relative;
+  overflow: hidden;
+  display: flex;
 
-.main-content {
-  margin-left: 200px;
-  transition: margin-left 0.3s;
-  .ant-layout-header{
+  .main-content {
+    flex: 1;
+    .ivu-layout-header {
       height: 50px;
       padding: 0 16px;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      background-color: #F3F7F7;
-      box-shadow: 0px 3px 5px rgba($color: #000000, $alpha: .05);
+      background-color: #f3f7f7;
+      box-shadow: 0px 3px 5px rgba($color: #000000, $alpha: 0.05);
+      .menu-icon {
+        transition: all 0.3s;
+      }
+      .rotate-icon {
+        transform: rotate(-90deg);
+      }
+    }
   }
 }
 </style>

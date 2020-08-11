@@ -1,17 +1,9 @@
 /*
  * @Author: your name
  * @Date: 2020-08-07 12:34:42
- * @LastEditTime: 2020-08-10 10:14:59
+ * @LastEditTime: 2020-08-11 14:01:27
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
- * @FilePath: /vue-antdv-admin/src/router/index.js
- */
-/*
- * @Author: 李伟
- * @Date: 2020-08-07 12:34:42
- * @LastEditTime: 2020-08-07 15:14:25
- * @LastEditors: Please set LastEditors
- * @Description: 路由设置
  * @FilePath: /vue-antdv-admin/src/router/index.js
  */
 import Vue from "vue";
@@ -19,6 +11,11 @@ import VueRouter from "vue-router";
 import MainView from "../views/main/index"
 
 Vue.use(VueRouter);
+
+const originalPush = VueRouter.prototype.push
+VueRouter.prototype.push = function push(location) {
+  return originalPush.call(this, location).catch(err => err)
+}
 
 export const defaultRoutes = [
   {
@@ -28,15 +25,39 @@ export const defaultRoutes = [
   },
   {
     path: "/",
-    component: MainView
+    component: MainView,
+    redirect: "/dashboard",
+    meta: {title: 'Dashboard', icon: "ios-apps"},
+    children: [
+      {
+        path: 'dashboard',
+        component: () => import("../views/dashboard/index"),
+        name: 'Dashboard',
+        meta: {title: 'Dashboard', roles: ['admin, roles'], icon: "ios-apps"},
+      }
+    ]
   }
 ]
 
 export const asyncRoutes = [
   {
-    path: "/test",
-    component: () => import("../views/test/index"),
-    meta: {title: 'test', roles: ['admin, roles']}
+    path: "/icon",
+    component: MainView,
+    meta: {title: 'Icons', icon: "ios-appstore"},
+    children: [
+      {
+        path: "index",
+        component: () => import("../views/icon/index"),
+        name: 'Icons1',
+        meta: {title: 'Icons', icon: "ios-appstore"}
+      },
+      {
+        path: "index1",
+        component: () => import("../views/icon/index1"),
+        name: 'Icons2',
+        meta: {title: 'Icons2', icon: "ios-appstore"}
+      }
+    ]
   }
 ]
 

@@ -1,7 +1,7 @@
 <!--
  * @Author: 李伟
  * @Date: 2020-08-07 12:47:14
- * @LastEditTime: 2020-08-10 10:24:24
+ * @LastEditTime: 2020-08-11 12:47:34
  * @LastEditors: Please set LastEditors
  * @Description: 登录页面
  * @FilePath: /vue-antdv-admin/src/views/login/index.vue
@@ -9,48 +9,45 @@
 <template>
   <div class="login-container">
     <div class="login-head">
-      <img src="../../images/va.png" alt="vue antd admin logo" />
-      <h1 class="login-title"><a href="https://vuejs.org/">Vue</a> <a href="https://www.antdv.com/docs/vue/introduce-cn/">Antd</a> Admin</h1>
+      <img src="../../images/va.png" alt="vue iview admin logo" />
+      <h1 class="login-title">
+        <a href="https://vuejs.org/">Vue</a>
+        <a href="http://iview.talkingdata.com/"> iView</a> Admin
+      </h1>
     </div>
     <div class="login-box">
-      <a-alert
-        v-show="showUserAlert"
-        type="error"
-        :message="userInputTooltip"
-        banner
-      />
-      <a-input
+      <Alert v-show="showUserAlert" type="error" show-icon>
+        {{ userInputTooltip }}
+      </Alert>
+      <Input
         class="login-user-input"
         placeholder="用户名"
         v-model="userValue"
       />
-      <a-alert
-        v-show="showPassAlert"
-        type="error"
-        :message="passInputTooltip"
-        banner
-      />
-      <a-input-password
+      <Alert v-show="showPassAlert" type="error" show-icon>
+        {{ passInputTooltip }}
+      </Alert>
+      <Input
+        type="password"
         class="login-pass-input"
         placeholder="用户密码"
         v-model="passValue"
       />
       <div class="login-button-box">
-        <a-spin v-if="logining" size="large" />
-        <a-button
-          v-if="!logining"
+        <Button
+          :disabled="logining"
           class="login-submit"
           type="primary"
           @click="handleLoginClick"
         >
           登录
-        </a-button>
+        </Button>
       </div>
     </div>
     <div class="login-tooltip">
       <div v-for="item in accounts" :key="item.user">
         user: {{ item.user }} pass: {{ item.pass }}
-        <a-button @click="handleSetAccountClick(item)">填充</a-button>
+        <Button @click="handleSetAccountClick(item)">填充</Button>
       </div>
       其他账户都可以使用, 密码大于等于六位数即可
     </div>
@@ -87,16 +84,19 @@ export default {
       const userValue = this.userValue;
       const passValue = this.passValue;
       if (userValue.length === 0) {
-        this.passInputTooltip = "用户名不能为空";
-        this.showPassAlert = true;
+        this.userInputTooltip = "用户名不能为空";
+        this.showUserAlert = true;
+        return
       }
       if (passValue.length === 0) {
         this.passInputTooltip = "密码不能为空";
         this.showPassAlert = true;
+        return
       }
       if (passValue.length < 6) {
         this.passInputTooltip = "密码不少于六位";
         this.showPassAlert = true;
+        return
       }
       if (
         (userValue === "admin" || userValue === "editor") &&
@@ -104,6 +104,7 @@ export default {
       ) {
         this.passInputTooltip = "密码错误";
         this.showPassAlert = true;
+        return
       }
       if (
         userValue &&
@@ -152,7 +153,7 @@ export default {
 <style lang="scss" scoped>
 .login-container {
   display: flex;
-  height: 100%;
+  height: 100vh;
   justify-content: center;
   align-items: center;
   flex-direction: column;
@@ -171,8 +172,8 @@ export default {
     }
     .login-title {
       user-select: none;
-      & a{
-          color: black;
+      & a {
+        color: black;
       }
     }
   }
