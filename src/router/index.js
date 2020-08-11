@@ -1,14 +1,14 @@
 /*
  * @Author: your name
  * @Date: 2020-08-07 12:34:42
- * @LastEditTime: 2020-08-11 14:01:27
+ * @LastEditTime: 2020-08-11 15:48:47
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /vue-antdv-admin/src/router/index.js
  */
 import Vue from "vue";
 import VueRouter from "vue-router";
-import MainView from "../views/main/index"
+import Layout from "../layout/index"
 
 Vue.use(VueRouter);
 
@@ -25,7 +25,7 @@ export const defaultRoutes = [
   },
   {
     path: "/",
-    component: MainView,
+    component: Layout,
     redirect: "/dashboard",
     meta: {title: 'Dashboard', icon: "ios-apps"},
     children: [
@@ -42,7 +42,7 @@ export const defaultRoutes = [
 export const asyncRoutes = [
   {
     path: "/icon",
-    component: MainView,
+    component: Layout,
     meta: {title: 'Icons', icon: "ios-appstore"},
     children: [
       {

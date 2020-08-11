@@ -1,7 +1,7 @@
 <!--
  * @Author: 李伟
  * @Date: 2020-08-10 17:09:01
- * @LastEditTime: 2020-08-11 14:37:35
+ * @LastEditTime: 2020-08-11 16:35:00
  * @LastEditors: Please set LastEditors
  * @Description: SiderItem
  * @FilePath: /vue-antdv-admin/src/components/sider/SiderItem.vue
@@ -42,7 +42,7 @@
 <script>
 import { mapGetters } from "vuex";
 import path from "path";
-import { isExternal } from "../../utils/validate";
+import { isExternal } from "../../../utils/validate";
 
 export default {
   name: "SiderItem",

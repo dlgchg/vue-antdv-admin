@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2020-08-10 11:49:10
- * @LastEditTime: 2020-08-11 10:24:12
+ * @LastEditTime: 2020-08-11 15:56:37
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /vue-antdv-admin/vue.config.js
@@ -14,7 +14,6 @@ module.exports = {
   configureWebpack: {
     resolve: {
       alias: {
-        // 别名
         vue$: "vue/dist/vue.esm.js", //加上这一句
         "@views": path.resolve(__dirname, "./src/views"),
       }

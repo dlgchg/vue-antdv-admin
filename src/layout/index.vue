@@ -1,7 +1,7 @@
 <!--
  * @Author: 李伟
  * @Date: 2020-08-07 15:06:57
- * @LastEditTime: 2020-08-11 15:05:32
+ * @LastEditTime: 2020-08-11 16:34:33
  * @LastEditors: Please set LastEditors
  * @Description: 主页
  * @FilePath: /vue-antdv-admin/src/views/main/index.vue
@@ -10,33 +10,7 @@
   <div class="layout">
     <sider-my />
     <Layout class="main-content">
-      <Header>
-        <Icon
-          type="md-menu"
-          @click="collapsedSider"
-          :class="rotateIcon"
-          size="24"
-        />
-        <div class="user-view">
-          <Tooltip content="全屏">
-            <Icon :type="isFullscreen? 'ios-desktop-outline' : 'ios-desktop'" size="24" @click="requestFullScreen" />
-          </Tooltip>
-
-          <img class="vartar-img" :src="avatar" :alt="name" />
-          <Dropdown @on-click="dropdownClick">
-            <a href="javascript:void(0)">
-              {{ name }}
-              <Icon type="ios-arrow-down"></Icon>
-            </a>
-            <DropdownMenu slot="list">
-              <DropdownItem name="userinfo">个人中心</DropdownItem>
-              <DropdownItem name="home">首页</DropdownItem>
-              <DropdownItem name="github">项目地址</DropdownItem>
-              <DropdownItem divided name="exit">退出</DropdownItem>
-            </DropdownMenu>
-          </Dropdown>
-        </div>
-      </Header>
+      <nav-bar />
       <Content class="main-content">
         <transition>
           <keep-alive>
@@ -44,7 +18,6 @@
           </keep-alive>
         </transition>
       </Content>
-      <Footer>Footer</Footer>
     </Layout>
   </div>
 </template>
@@ -52,11 +25,13 @@
 <script>
 import { mapGetters } from "vuex";
 import screenfull from "screenfull";
-import SiderMy from "../../components/sider/SiderMy";
+import SiderMy from "./components/sider/SiderMy";
+import NavBar from "./components/Navbar";
 export default {
   name: "Home",
   components: {
     "sider-my": SiderMy,
+    "nav-bar": NavBar,
   },
   data() {
     return {
