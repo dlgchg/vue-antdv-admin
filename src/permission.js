@@ -1,7 +1,7 @@
 /*
  * @Author: 李伟
  * @Date: 2020-08-07 13:02:35
- * @LastEditTime: 2020-08-11 11:26:26
+ * @LastEditTime: 2020-08-12 15:04:07
  * @LastEditors: Please set LastEditors
  * @Description: 路由权限设置
  * @FilePath: /vue-antdv-admin/src/permissons.js
@@ -10,7 +10,7 @@ import rouer from "./router";
 import { getToken } from "./utils/auth";
 import store from "./store";
 import router from "./router";
-import iView from 'iview';
+import iView from 'view-design';
 
 const whiteRouteList = ["/login"];
 

@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2020-08-07 12:34:42
- * @LastEditTime: 2020-08-12 13:38:35
+ * @LastEditTime: 2020-08-12 15:17:13
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /vue-antdv-admin/src/router/index.js
@@ -43,19 +43,14 @@ export const asyncRoutes = [
   {
     path: "/icon",
     component: Layout,
+    redirect: "/icon/index",
     meta: {title: 'Icons', icon: "ios-appstore"},
     children: [
       {
         path: "index",
         component: () => import("../views/icon/index"),
-        name: 'Icons1',
+        name: 'Icons',
         meta: {title: 'Icons', icon: "ios-appstore"}
-      },
-      {
-        path: "index1",
-        component: () => import("../views/icon/index1"),
-        name: 'Icons2',
-        meta: {title: 'Icons2', icon: "ios-appstore"}
       }
     ]
   }
