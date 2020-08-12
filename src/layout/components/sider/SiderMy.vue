@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2020-08-10 13:10:36
- * @LastEditTime: 2020-08-11 16:34:48
+ * @LastEditTime: 2020-08-12 10:57:57
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /vue-antdv-admin/src/components/sider/index.vue
@@ -44,5 +44,8 @@ export default {
 <style lang="scss" scoped>
 .ivu-layout-sider {
   height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
 }
 </style>

@@ -1,7 +1,7 @@
 <!--
  * @Author: 李伟
  * @Date: 2020-08-07 15:06:57
- * @LastEditTime: 2020-08-11 16:34:33
+ * @LastEditTime: 2020-08-12 13:11:56
  * @LastEditors: Please set LastEditors
  * @Description: 主页
  * @FilePath: /vue-antdv-admin/src/views/main/index.vue
@@ -9,9 +9,9 @@
 <template>
   <div class="layout">
     <sider-my />
-    <Layout class="main-content">
+    <Layout class='main-content' :class="{'main-content-move': siderOpened}">
       <nav-bar />
-      <Content class="main-content">
+      <Content class="content">
         <transition>
           <keep-alive>
             <router-view></router-view>
@@ -98,9 +98,12 @@ export default {
   position: relative;
   overflow: hidden;
   display: flex;
-
+  min-width: 900px;
   .main-content {
     flex: 1;
+    margin-left: 200px;
+    width: calc(100% - 200px);
+    transition: all .3s;
     .ivu-layout-header {
       height: 50px;
       padding: 0 16px;
@@ -132,6 +135,15 @@ export default {
         }
       }
     }
+    .content {
+      padding: 20px;
+      height: 100%;
+      box-sizing: border-box;
+    }
+  }
+  .main-content-move {
+    margin-left: 64px;
+    width: calc(100% - 64px);
   }
 }
 </style>
