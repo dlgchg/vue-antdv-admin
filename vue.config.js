@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2020-08-10 11:49:10
- * @LastEditTime: 2020-08-12 13:38:42
+ * @LastEditTime: 2020-08-12 17:15:41
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /vue-antdv-admin/vue.config.js
@@ -10,7 +10,7 @@
 const path = require("path");
 
 module.exports = {
-  // runtimeCompiler: true,
+  publicPath: './',
   configureWebpack: {
     resolve: {
       alias: {

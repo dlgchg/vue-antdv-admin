@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2020-08-07 12:34:42
- * @LastEditTime: 2020-08-12 15:17:13
+ * @LastEditTime: 2020-08-13 09:04:30
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /vue-antdv-admin/src/router/index.js
@@ -51,6 +51,26 @@ export const asyncRoutes = [
         component: () => import("../views/icon/index"),
         name: 'Icons',
         meta: {title: 'Icons', icon: "ios-appstore"}
+      }
+    ]
+  },
+  {
+    path: "/component",
+    component: Layout,
+    redirect: "/component/button",
+    meta: {title: 'Component', icon: "ios-grid"},
+    children: [
+      {
+        path: "button",
+        component: () => import("../views/component/Button"),
+        name: 'Button',
+        meta: {title: 'Button', icon: "ios-finger-print"}
+      },
+      {
+        path: "tab",
+        component: () => import("../views/component/Tab"),
+        name: 'Tab',
+        meta: {title: 'Tab', icon: "ios-more"}
       }
     ]
   }
