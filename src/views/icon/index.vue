@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2020-08-10 13:05:09
- * @LastEditTime: 2020-08-12 15:44:00
+ * @LastEditTime: 2020-08-13 10:43:17
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /vue-antdv-admin/src/views/icon/index.vue
@@ -29,9 +29,19 @@
       </RadioGroup>
     </div>
     <div class="icon-layout">
-      <div class="icon-item" v-for="icon in icons" :key="icon" @click="copyIcon(icon)">
-        <Icon :type="icon" :size="iconSize" :color="iconColor" />
-        <h3 :style="{'color': iconColor}">{{ icon }}</h3>
+      <div
+        class="icon-item"
+        v-for="icon in icons"
+        :key="icon"
+        @click="copyIcon(icon)"
+      >
+        <Tooltip
+          :content="tooltipContent(icon)"
+          placement="top"
+        >
+          <Icon :type="icon" :size="iconSize" :color="iconColor" />
+        </Tooltip>
+        <h3 :style="{ color: iconColor }">{{ icon }}</h3>
       </div>
     </div>
   </div>
@@ -69,15 +79,18 @@ export default {
   },
   methods: {
     copyIcon(icon) {
-      const _this = this
-      const iconSize = this.iconSize
-      const iconColor = this.iconColor
-      let copyText = `<Icon type="${icon}" size="${iconSize}" color="${iconColor}" />`
+      const _this = this;
+      const iconSize = this.iconSize;
+      const iconColor = this.iconColor;
+      let copyText = `<Icon type="${icon}" size="${iconSize}" color="${iconColor}" />`;
       this.$copyText(copyText).then(() => {
-        _this.$Message.info('Icon已复制');
-      })
-    }
-  }
+        _this.$Message.info({background: true, content :"Icon已复制"});
+      });
+    },
+    tooltipContent(icon) {
+      return `<Icon type="${icon}"/>`;
+    },
+  },
 };
 </script>
 
