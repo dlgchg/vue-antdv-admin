@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2020-08-13 09:00:16
- * @LastEditTime: 2020-08-13 09:20:39
+ * @LastEditTime: 2020-08-13 09:41:23
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /vue-iview-admin/src/views/component/Button.vue
@@ -158,6 +158,7 @@ export default {
     return {
       loading: false,
       loading2: false,
+      buttonSize: 'large'
     };
   },
   methods: {
