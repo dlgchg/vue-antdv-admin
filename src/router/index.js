@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2020-08-07 12:34:42
- * @LastEditTime: 2020-08-14 14:39:21
+ * @LastEditTime: 2020-08-14 14:47:03
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /vue-antdv-admin/src/router/index.js
@@ -71,13 +71,18 @@ export const asyncRoutes = [
         component: () => import("../views/component/Tab"),
         name: 'Tab',
         meta: {title: 'Tab', icon: "ios-more"}
-      }
-      ,
+      },
       {
         path: "steps",
         component: () => import("../views/component/Step"),
         name: 'Steps',
         meta: {title: 'Steps', icon: "ios-fastforward"}
+      },
+      {
+        path: "avatar",
+        component: () => import("../views/component/Avatar"),
+        name: 'Avatar',
+        meta: {title: 'Avatar', icon: "ios-contact"}
       }
     ]
   }
