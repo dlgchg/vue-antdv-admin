@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2020-08-14 14:37:02
- * @LastEditTime: 2020-08-14 14:42:03
+ * @LastEditTime: 2020-08-14 14:43:24
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /vue-iview-admin/src/views/component/Step.vue
@@ -94,5 +94,8 @@ export default {
 .step-view {
   display: flex;
   flex-direction: column;
+  div{
+      margin-bottom: 20px;
+  }
 }
 </style>
