@@ -1,7 +1,7 @@
 <!--
  * @Author: 李伟
  * @Date: 2020-08-07 15:06:57
- * @LastEditTime: 2020-08-13 09:26:19
+ * @LastEditTime: 2020-08-13 16:08:42
  * @LastEditors: Please set LastEditors
  * @Description: 主页
  * @FilePath: /vue-antdv-admin/src/views/main/index.vue
@@ -11,10 +11,9 @@
     <sider-my />
     <Layout class="main-content" :class="{ 'main-content-move': siderOpened }">
       <nav-bar />
-      <bread-crumb />
       <Content>
         <transition>
-          <keep-alive>
+          <keep-alive exclude="dashboard">
             <router-view></router-view>
           </keep-alive>
         </transition>
@@ -28,14 +27,12 @@ import { mapGetters } from "vuex";
 import screenfull from "screenfull";
 import SiderMy from "./components/sider/SiderMy";
 import NavBar from "./components/Navbar";
-import Breadcrumb from "./components/Breadcrumb"
 
 export default {
   name: "Home",
   components: {
     "sider-my": SiderMy,
     "nav-bar": NavBar,
-    "bread-crumb": Breadcrumb,
   },
   data() {
     return {

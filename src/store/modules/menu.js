@@ -1,5 +1,13 @@
+/*
+ * @Author: your name
+ * @Date: 2020-08-13 10:01:02
+ * @LastEditTime: 2020-08-13 16:03:47
+ * @LastEditors: your name
+ * @Description: In User Settings Edit
+ * @FilePath: /vue-iview-admin/src/store/modules/menu.js
+ */
 const state = {
-  activeName: "/dashboard",
+  activeName: "/",
 };
 
 const SetActiveName = "SetActiveName";

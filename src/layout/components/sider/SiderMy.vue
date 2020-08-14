@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2020-08-10 13:10:36
- * @LastEditTime: 2020-08-13 10:05:15
+ * @LastEditTime: 2020-08-13 16:01:50
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /vue-antdv-admin/src/components/sider/index.vue
@@ -27,6 +27,9 @@ export default {
       return ["menu-item", this.siderOpened ? "collapsed-menu" : ""];
     },
   },
+  mounted() {
+    console.log(this.activeName)
+  }
 };
 </script>
 

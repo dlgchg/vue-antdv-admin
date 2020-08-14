@@ -1,7 +1,7 @@
 <!--
  * @Author: 李伟
  * @Date: 2020-08-10 17:09:01
- * @LastEditTime: 2020-08-11 16:35:00
+ * @LastEditTime: 2020-08-13 16:05:52
  * @LastEditors: Please set LastEditors
  * @Description: SiderItem
  * @FilePath: /vue-antdv-admin/src/components/sider/SiderItem.vue
@@ -10,7 +10,7 @@
   <MenuItem
     v-if="hasOneShowingChild(item.children, item) && !item.hidden"
     :key="item.path"
-    :name="item.meta.title"
+    :name="item.path"
     :to="resolvePath(item.path)"
     :alt="item.title"
   >

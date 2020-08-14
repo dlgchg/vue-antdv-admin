@@ -1,18 +1,27 @@
 <!--
  * @Author: 李伟
  * @Date: 2020-08-11 15:44:18
- * @LastEditTime: 2020-08-11 16:31:04
+ * @LastEditTime: 2020-08-13 15:59:17
  * @LastEditors: Please set LastEditors
  * @Description: Navabr
  * @FilePath: /vue-iview-admin/src/layout/Navbar.vue
 -->
 <template>
   <Header>
-    <Icon
-      type="md-menu"
-      @click="collapsedSider"
-      :class="rotateIcon"
-      size="24"
+    <div class="bread-view">
+      <Icon
+        type="md-menu"
+        @click="collapsedSider"
+        :class="rotateIcon"
+        size="24"
+      />
+      <bread-crumb />
+    </div>
+    <Input
+      style="border: none;background-color: transparent;width: auto;"
+      placeholder="Enter text"
+      clearable
+      search
     />
     <div class="user-view">
       <Tooltip content="全屏">
@@ -43,11 +52,15 @@
 <script>
 import { mapGetters } from "vuex";
 import screenfull from "screenfull";
+import Breadcrumb from "./Breadcrumb";
 export default {
   data() {
     return {
       isFullscreen: false,
     };
+  },
+  components: {
+    "bread-crumb": Breadcrumb,
   },
   computed: {
     ...mapGetters(["siderOpened", "avatar", "name"]),
@@ -113,15 +126,24 @@ export default {
   align-items: center;
   background-color: #f3f7f7;
   box-shadow: 0px 3px 5px rgba($color: #000000, $alpha: 0.05);
-  .menu-icon {
-    transition: all 0.3s;
+  .bread-view {
+    display: flex;
+    align-items: center;
+    .menu-icon {
+      transition: all 0.3s;
+      margin-right: 20px;
+    }
+    .rotate-icon {
+      transform: rotate(-90deg);
+    }
   }
-  .rotate-icon {
-    transform: rotate(-90deg);
+  .ivu-input-wrapper {
+    margin: auto 10px;
   }
   .user-view {
     display: flex;
     align-items: center;
+
     .ivu-icon {
       margin-right: 10px;
       cursor: pointer;
