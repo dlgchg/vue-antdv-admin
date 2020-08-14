@@ -1,14 +1,14 @@
 <!--
  * @Author: your name
  * @Date: 2020-08-07 12:34:59
- * @LastEditTime: 2020-08-14 15:06:28
- * @LastEditors: your name
+ * @LastEditTime: 2020-08-14 15:18:50
+ * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /vue-iview-admin/README.md
 -->
 # vue-antdv-admin
 
-[](https://github.com/dlgchg/vue-iview-admin/blob/master/screenshot/screenshot.png?raw=true)
+![](https://github.com/dlgchg/vue-iview-admin/blob/master/screenshot/screenshot.png?raw=true)
 
 ## Project setup
 ```
