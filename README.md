@@ -1,12 +1,12 @@
 <!--
  * @Author: your name
  * @Date: 2020-08-07 12:34:59
- * @LastEditTime: 2020-08-14 15:18:50
+ * @LastEditTime: 2020-08-14 15:19:35
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /vue-iview-admin/README.md
 -->
-# vue-antdv-admin
+# vue-iview-admin
 
 ![](https://github.com/dlgchg/vue-iview-admin/blob/master/screenshot/screenshot.png?raw=true)
 
