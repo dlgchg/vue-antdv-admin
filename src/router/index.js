@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2020-08-07 12:34:42
- * @LastEditTime: 2020-08-14 14:47:03
+ * @LastEditTime: 2020-08-19 12:40:29
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /vue-antdv-admin/src/router/index.js
@@ -83,6 +83,20 @@ export const asyncRoutes = [
         component: () => import("../views/component/Avatar"),
         name: 'Avatar',
         meta: {title: 'Avatar', icon: "ios-contact"}
+      }
+    ]
+  },
+  {
+    path: "/table",
+    component: Layout,
+    redirect: "/table/index",
+    meta: {title: 'Table', icon: "md-list-box"},
+    children: [
+      {
+        path: "index",
+        component: () => import("../views/table/index"),
+        name: 'Table',
+        meta: {title: 'Table', icon: "md-list-box"}
       }
     ]
   }
